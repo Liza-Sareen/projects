@@ -1,0 +1,201 @@
+//FINAL PROGRAM
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+//DECLARATIONS
+int selection1,Age,Adnumber,Pannumber=0;
+char pan,Gender;
+char Firstname[50];
+char Lastname[50];
+int balance=0,depositamt;
+int withdrawlamt;
+//CLOSE DECLARATIONS
+
+//PERSONAL INFO FORM 1
+class form1
+{
+  public:
+  void create
+  {
+  	cout<<"Enter your first name"<<endl;
+  	cin>>Firstname;
+  	cout<<"Enter your last name"<<endl;
+  	cin>>Lastname;
+  	cout<<"Enter your age"<<endl;
+  	cin>>Age;
+  	cout<<"Enter your gender"<<endl;
+  	cin>>Gender;
+  	cout<<"Enter your pan number"<<endl;
+  	cin>>Pannumber;
+  	cout<<"Congrats! Bank Account created."<<endl;
+	  }	
+};
+//PERSONAL INFO FORM1 CLOSED
+//PERSONAL INFO FORM 2
+class form2
+{
+  public:
+  void create2
+  {
+  	cout<<"Enter your first name"<<endl;
+  	cin>>Firstname;
+  	cout<<"Enter your last name"<<endl;
+  	cin>>Lastname;
+  	cout<<"Enter your age"<<endl;
+  	cin>>Age;
+  	cout<<"Enter your gender"<<endl;
+  	cin>>Gender;
+  	cout<<"Enter your aadhar number"<<endl;
+  	cin>>Adnumber;
+  	cout<<"Congrats! Bank Account created."<<endl;
+	  }	
+};
+//PERSONAL INFO FORM 2 CLOSED
+//BANK ACCOUNT CREATION
+class creation:public form1,public form2
+{
+   public:
+   	void check()
+   {
+   
+   cout<<"If you have a Pan card then enter Y for yes else N for no"<<endl;	
+   cin>>pan;
+   switch(pan)
+   {
+   	case Y:
+   		create();
+   		break;
+   	case N:
+   		create2();
+   		break;
+   	default:
+   		cout<<"Kindly choose a valid option"<<endl;
+   }
+}
+};
+
+//DEPOSIT
+class deposit
+{
+	public:
+		void deposition
+		{
+		  cout<<"enter the amount you want to deposit"<<endl;
+		  cin>>depositamt;
+		  cout<<"Your cash has been deposited";
+		  balance=depositamt+balance;
+	//BALANCE = 0+DEPOSIT	
+		};
+};
+//WITHDRAWL
+class with
+{
+	public:
+	void withdrawl()
+	{
+		cout<<"enter the amount you want to withdraw";
+		cin>>withdrawlamt;
+		if(balance>=withdrawlamt)
+		cout<<"Amount withdrawn";
+		else
+		cout<<"Not available balance for proper withdrawl";
+	}
+};
+//BALANCE
+class balance
+{
+	public:
+		void enquiry()
+		{
+			cout<<"Balance is"<<balance<<endl;
+		}
+};
+//ACCOUNT HOLDER'S DETAIL
+class detail
+{
+	public:
+		void holder()
+		{
+			cout<<"First name "<<Firstname<<endl;
+			cout<<"Last name "<<Lastname<<endl;
+			cout<<"Age "<<Age<<endl;
+			cout<<"Gender "<<Gender<<endl;
+			if(Pannumber=0)
+			cout<<"Adhar number "<<Adnumber<<endl;
+			else
+			cout<<"Pan number"<<Pannumber<<endl;
+		}
+};
+//TERMINATING BANK ACCOUNT
+class terminate
+{
+	public:
+		void close
+		{
+			Firstname=0;
+			Lastname=0;
+			Age=0;
+			cout<<"Your bank account has been terminated. Sorry to see you go."<<endl;
+		}
+};
+//UPDATE
+class update
+{
+	public:
+		void up()
+		{
+			cout<<"Enter your first name"<<endl;
+  	cin>>Firstname;
+  	cout<<"Enter your last name"<<endl;
+  	cin>>Lastname;
+  	cout<<"Enter your age"<<endl;
+  	cin>>Age;
+  	cout<<"Enter your gender"<<endl;
+  	cin>>Gender;
+  	cout<<"Congrats! Bank Account updated."<<endl;
+
+		}
+};
+
+//MAIN FUNCTION
+main()
+{
+
+
+//Objects
+creation c1;
+deposit d1;
+with w1;
+balance b1;
+detail a1;
+terminate t1;
+update u1;
+	cout<<"WELCOME TO ONLINE BANKING SERVICE"<<endl;
+	cout<<"Kindly select your reason for visit\n1.Bank Account Creation\n2.Deposit amount for the customer\n3.Withdrawlamount for the customer\n4.Balance Enquiry\n5.Show account holder’s full detail\n6.Closing or terminating a bank account\n7.Updating the bank account"<<endl;
+	cin>>selection1;
+	switch(selection1)
+	{
+		case 1://BANK ACCOUNT CREATION
+		c1.check();
+			break;
+		case 2://DEPOSIT AMOUNT OF CUSTOMER
+		d1.deposition();
+			break;
+		case 3://WITHDRAWL
+			w1.withdrawl();
+			break;
+		case 4://BALANCE ENQUIRY
+		b1.enquiry();
+			break;
+		case 5://ACCOUNT HOLDER'S DETAIL
+		a1.holder();
+			break;
+		case 6://CLOSING OR TERMINATING A BANK ACCOUNT
+			break;
+		case 7://UPDATE AN ACCOUNT
+			break;
+		default:
+			cout<<"Kindly select a valid option";
+	}
+}
